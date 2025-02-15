@@ -8,15 +8,24 @@ const Sidebar = () => {
   return (
     <>
       <button
-        className="md:hidden p-4 bg-gray-800 text-white w-full flex items-center justify-between"
+        className="md:hidden p-4 bg-gray-800 text-white w-full flex gap-2  justify-between"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span>💰 CryptoDash</span>
+        <div>💰</div>
+        <span> CryptoDash</span>
         <FiMenu size={24} />
       </button>
 
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
+      {/* Sidebar */}
       <aside
-        className={`bg-gray-800 p-6 text-white min-h-screen md:w-64 absolute md:relative transform ${
+        className={`fixed md:relative top-0 left-0 w-64 bg-gray-800 p-6 text-white min-h-screen z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
