@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer"; // ✅ Import Footer
+import Footer from "./components/Footer"; 
 import Dashboard from "./pages/Dashboard";
 import Overview from "./pages/Overview";
 import History from "./pages/History";
@@ -14,9 +14,9 @@ const App = () => (
       <div className="flex flex-col min-h-screen">
         <div className="flex flex-1 md:flex-row">
           <Sidebar />
-          <div className="flex-1">
+          <div className="flex flex-col flex-1 overflow-auto">
             <Header />
-            <main className="p-6">
+            <main className="p-6 flex-1 overflow-auto">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/overview" element={<Overview />} />
@@ -25,11 +25,10 @@ const App = () => (
             </main>
           </div>
         </div>
-        <Footer /> {/* ✅ Add Footer */}
+        <Footer />
       </div>
     </Router>
   </Provider>
 );
 
 export default App;
-
